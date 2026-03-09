@@ -37,7 +37,6 @@ MainAcecraft
 
 ## Object
 Object merupakan instansi dari class.
-
 Contoh pembuatan object pada program:
 Acecraft akun = new Acecraft(uid, username, level, server);
 
@@ -95,12 +94,11 @@ static ArrayList<Acecraft> database = new ArrayList<>();
 ## Fitur Program
 1. Tambah Data (Create)
 Menu ini digunakan untuk menambahkan data akun baru.
-
 User akan diminta mengisi:
--UID
--Username
--Level
--Server
+- UID
+- Username
+- Level
+- Server
 Data kemudian disimpan ke dalam ArrayList database
 
 2. Tampilkan Data (Read)
@@ -125,8 +123,8 @@ Program akan mencari UID dalam ArrayList lalu menghapus data tersebut.
 Program Sistem Penyimpanan Data Akun Acecraft berhasil dibuat menggunakan konsep Pemrograman Berorientasi Objek dengan bahasa Java.
 
 Konsep yang digunakan antara lain:
--Class
--Object
--Encapsulation
--ArrayList sebagai penyimpanan data
+- Class
+- Object
+- Encapsulation
+- ArrayList sebagai penyimpanan data
 Program juga mampu melakukan operasi CRUD (Create, Read, Update, Delete) sehingga data akun dapat dikelola dengan baik.
