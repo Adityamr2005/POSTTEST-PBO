@@ -129,6 +129,4 @@ Konsep yang digunakan antara lain:
 -Object
 -Encapsulation
 -ArrayList sebagai penyimpanan data
-
-Program juga mampu melakukan operasi CRUD (Create, Read, Update, Delete)
-sehingga data akun dapat dikelola dengan baik.
+Program juga mampu melakukan operasi CRUD (Create, Read, Update, Delete) sehingga data akun dapat dikelola dengan baik.
