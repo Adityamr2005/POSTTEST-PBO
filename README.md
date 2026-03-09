@@ -99,6 +99,7 @@ User akan diminta mengisi:
 - Username
 - Level
 - Server
+
 Data kemudian disimpan ke dalam ArrayList database
 
 2. Tampilkan Data (Read)
@@ -127,4 +128,5 @@ Konsep yang digunakan antara lain:
 - Object
 - Encapsulation
 - ArrayList sebagai penyimpanan data
+
 Program juga mampu melakukan operasi CRUD (Create, Read, Update, Delete) sehingga data akun dapat dikelola dengan baik.
