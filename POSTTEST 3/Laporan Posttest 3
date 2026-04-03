@@ -1,0 +1,63 @@
+# Laporan Praktikum Pemrograman Berorientasi Objek - Posttest 3
+
+## Informasi Mahasiswa
+* **Nama:** [Aditya Mahyudi Ramadhan]
+* **NIM:** [2409106101]
+* **Kelas:** [C1'24]
+* **Sistem yang Dibuat:** Sistem Penyimpanan Data Acecraft (Manajemen Akun Game)
+
+---
+
+## Deskripsi Program
+Program ini merupakan sistem manajemen data akun sederhana untuk "Acecraft". Program mengimplementasikan konsep **Inheritance** (Pewarisan) dan **Polymorphism** untuk mengelola dua jenis akun yang berbeda: `PlayerAccount` dan `AdminAccount`.
+
+### Fitur Utama:
+1. **Create**: Menambahkan data akun baru (Player atau Admin).
+2. **Read**: Menampilkan seluruh daftar akun yang tersimpan dalam database (ArrayList).
+3. **Update**: Mengubah informasi akun (Username, Level, dan Server) berdasarkan UID.
+4. **Delete**: Menghapus data akun berdasarkan UID.
+
+---
+
+## Struktur Class
+Program ini terdiri dari 4 file Java utama:
+
+1.  **`Acecraft.java` (Superclass)**:
+    * Berisi atribut umum seperti `uid`, `username`, `level`, dan `server`.
+    * Menggunakan akses modifier `protected` agar atribut dapat diakses langsung oleh subclass.
+    * Memiliki metode `tampilkanData()` dasar.
+
+2.  **`PlayerAccount.java` (Subclass)**:
+    * Turunan dari `Acecraft`.
+    * Memiliki atribut spesifik `rank`.
+    * Melakukan *Override* pada metode `tampilkanData()` untuk menyertakan informasi Rank.
+
+3.  **`AdminAccount.java` (Subclass)**:
+    * Turunan dari `Acecraft`.
+    * Memiliki atribut spesifik `adminCode`.
+    * Melakukan *Override* pada metode `tampilkanData()` untuk menyertakan Kode Admin.
+
+4.  **`MainAcecraft.java`**:
+    * Berisi logika utama program (Menu CRUD).
+    * Menggunakan `ArrayList<Acecraft>` untuk menyimpan objek dari subclass secara polimorfik.
+
+---
+
+## Konsep OOP yang Diterapkan
+
+### 1. Inheritance (Pewarisan)
+Pewarisan digunakan untuk menghindari redundansi kode. Atribut umum yang dimiliki oleh semua jenis akun didefinisikan di class `Acecraft`. Subclass (`PlayerAccount` dan `AdminAccount`) cukup mewarisi atribut tersebut menggunakan kata kunci `extends`.
+
+### 2. Polymorphism
+Polimorfisme terlihat saat pemanggilan metode `acc.tampilkanData()` di dalam loop pada class `Main`. Meskipun list didefinisikan sebagai `ArrayList<Acecraft>`, Java secara otomatis akan menjalankan metode `tampilkanData()` milik subclass yang sesuai (apakah itu milik Player atau Admin) pada saat runtime.
+
+### 3. Encapsulation (Enkapsulasi)
+Penerapan enkapsulasi dilakukan melalui penggunaan *Getter* dan *Setter*. Validasi input juga diterapkan pada setter, seperti memastikan username tidak kosong dan level tidak boleh kurang dari 1.
+
+---
+
+## Cara Menjalankan Program
+1. Pastikan Anda telah menginstal Java Development Kit (JDK).
+2. Compile semua file java:
+   ```bash
+   javac *.java
