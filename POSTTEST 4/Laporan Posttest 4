@@ -1,0 +1,69 @@
+# Laporan Posttest: Penerapan Polymorphism pada Sistem Acecraft
+Nama: Aditya Mahyudi Ramadhan
+NIM: 2409106101
+Kelas: C1'24
+
+Laporan ini disusun untuk memenuhi tugas Posttest mengenai implementasi **Polymorphism** (Overloading dan Overriding) menggunakan bahasa pemrograman Java.
+
+1. Deskripsi Proyek
+Proyek ini adalah sistem manajemen data akun game bernama **Acecraft**. 
+Sistem ini memungkinkan admin untuk mengelola data akun pemain (Player) dan administrator (Admin) dengan fitur dasar CRUD (*Create, Read, Update, Delete*).
+
+2. Struktur Class
+Proyek terdiri dari 4 class utama:
+* `Acecraft.java`: Superclass (Parent) yang menampung atribut umum.
+* `PlayerAccount.java`: Subclass (Child) khusus untuk data pemain.
+* `AdminAccount.java`: Subclass (Child) khusus untuk data administrator.
+* `MainAcecraft.java`: Main class untuk menjalankan logika program dan interaksi user.
+
+---
+
+3. Implementasi Polymorphism
+
+A. Method Overloading (Static Polymorphism)
+Penerapan ini dilakukan pada class `Acecraft` melalui method `setServer`. 
+Tujuannya agar server dapat diupdate menggunakan dua cara yang berbeda:
+1.  **Input String**: Memasukkan nama server secara langsung.
+2.  **Input Integer**: Memasukkan kode region (1-3) yang kemudian dikonversi otomatis menjadi nama server.
+
+**Potongan Kode:**
+```java
+// Versi standar: Input String
+public void setServer(String server) { ... }
+
+// Versi Overload: Input Integer sebagai kode wilayah
+public void setServer(int regionCode) { ... }
+
+
+B. Method Overriding (Dynamic Polymorphism)
+Penerapan ini dilakukan pada method tampilkanData. 
+Method di class induk (Acecraft) didefinisikan ulang di class anak untuk memberikan informasi yang lebih spesifik sesuai tipe akun.
+
+Pada PlayerAccount, ditambahkan output Rank.
+
+Pada AdminAccount, ditambahkan output Admin ID.
+
+Potongan Kode:
+@Override
+public void tampilkanData() {
+    super.tampilkanData(); // Memanggil data dasar dari parent
+    System.out.println("Rank     : " + rank);
+}
+
+4. Penjelasan Perbaikan Error (Scope Variabel)
+Sebelumnya terdapat error Cannot resolve symbol 'input'. Hal ini terjadi karena variabel Scanner dan ArrayList dideklarasikan 
+di dalam method main sehingga tidak bisa diakses oleh method statis lainnya seperti updateData().
+Solusi yang diterapkan:
+Memindahkan deklarasi variabel ke tingkat class (Global Scope) dengan modifier static.
+public class MainAcecraft {
+    static ArrayList<Acecraft> database = new ArrayList<>();
+    static Scanner input = new Scanner(System.in);
+    
+    // Sekarang variabel bisa diakses di semua method di bawah ini
+}
+
+5. Kesimpulan
+Penerapan Polymorphism dalam sistem ini memberikan fleksibilitas:
+- Overloading memudahkan input data dengan berbagai format parameter.
+- Overriding memungkinkan program untuk menjalankan fungsi yang berbeda 
+pada objek yang berbeda meskipun dipanggil melalui satu referensi (List Acecraft).
