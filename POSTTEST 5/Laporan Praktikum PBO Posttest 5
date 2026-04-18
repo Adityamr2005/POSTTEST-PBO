@@ -1,0 +1,53 @@
+# Laporan Praktikum Pemrograman Berorientasi Objek - Posttest 5
+
+**Nama:** Aditya Mahyudi Ramadhan
+**NIM:** 2409106101
+**Kelas:** C1'24
+**Tema Proyek:** Sistem Pencarian Data UID Akun Game Acecraft (Implementasi Abstract Class & Interface)
+
+## 1. Deskripsi Program
+Program "Acecraft" adalah aplikasi manajemen data akun game sederhana berbasis Java. Pada Posttest 5 ini, program telah dikembangkan untuk menggunakan konsep **Abstract Class** pada kelas induk dan **Interface** untuk mendefinisikan kontrak operasi akun. Program mendukung operasi CRUD (Create, Read, Update, Delete) untuk dua jenis akun: `PlayerAccount` dan `AdminAccount`.
+
+## 2. Konsep OOP yang Diterapkan
+
+### Abstract Class
+Kelas `Acecraft` diubah menjadi kelas abstrak. Kelas ini berfungsi sebagai kerangka dasar yang tidak dapat diinstansiasi secara langsung dan memiliki satu *abstract method* yaitu `getAccountType()`.
+* **File:** `Acecraft.java`
+* **Abstract Method:** `public abstract String getAccountType();`
+
+### Interface
+Dibuat sebuah interface bernama `AccountOperations` yang mendefinisikan perilaku wajib bagi setiap akun, yaitu menaikkan level dan menampilkan pesan sambutan.
+* **File:** `AccountOperations.java`
+* **Method:** `levelUp()` dan `getWelcomeMessage()`
+
+### Inheritance & Implementation
+Kelas `PlayerAccount` dan `AdminAccount` mewarisi kelas abstrak `Acecraft` dan mengimplementasikan interface `AccountOperations`.
+* **PlayerAccount:** Menambahkan atribut `rank`.
+* **AdminAccount:** Menambahkan atribut `adminCode`.
+
+## 3. Struktur Kelas
+
+| Kelas / Interface | Jenis | Deskripsi |
+|---|---|---|
+| `AccountOperations` | Interface | Mendefinisikan method `levelUp` dan `getWelcomeMessage`. |
+| `Acecraft` | Abstract Class | Parent class yang menyimpan data umum (UID, Username, Level, Server). |
+| `PlayerAccount` | Class | Subclass untuk data pemain reguler. |
+| `AdminAccount` | Class | Subclass untuk data administrator sistem. |
+| `MainAcecraft` | Main Class | Mengelola alur program dan penyimpanan `ArrayList`. |
+
+## 4. Cara Menjalankan Program
+1.  Pastikan Java JDK telah terinstal.
+2.  Kompilasi semua file Java:
+    ```bash
+    javac AccountOperations.java Acecraft.java PlayerAccount.java AdminAccount.java MainAcecraft.java
+    ```
+3.  Jalankan kelas utama:
+    ```bash
+    java MainAcecraft
+    ```
+
+## 5. Fitur Program
+* **Tambah Data:** Pengguna dapat memilih untuk menambah akun Player atau Admin.
+* **Tampilkan Data:** Menampilkan semua data akun beserta pesan sambutan unik dari interface.
+* **Update Data:** Memperbarui informasi akun atau menggunakan fitur `levelUp` dari interface.
+* **Hapus Data:** Menghapus data akun berdasarkan UID.
